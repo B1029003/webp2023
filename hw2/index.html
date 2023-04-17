@@ -29,19 +29,7 @@
         </div>
     </body>
     <script>
-        /*
-        var openUrl = "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do"
-        
-        var xhr = new XMLHttpRequest();//這
-        xhr.open('GET', openUrl, true);//   三
-        xhr.send();                    //       行基本不變
-        xhr.onreadystatechange = function() { //資料改變時呼叫
-            if (this.readyState == 4 && this.status == 200) { //4:連好了 200:ok
-                dataset = JSON.parse(this.responseText); //把server送回的資料解析
-                addNewData(dataset);
-            }
-        };
-        */
+   
         var openUrl = "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=1";
         
         var xhr = new XMLHttpRequest();
