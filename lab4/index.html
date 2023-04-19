@@ -29,26 +29,40 @@
         </div>
     </body>
     <script>
-   
-        var openUrl = "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=1";
-        
-//         var xhr = new XMLHttpRequest();
-//         var dataset;
-//         var rownum = 0;
-//         var pagenum = 0;
-//         var curpage = 0;
-//         xhr.open('GET', openUrl, true);
-//         xhr.send();
+         var dataset;
+         var rownum = 0;
+         var pagenum = 0;
+         var curpage = 0;
 
-//         xhr.onreadystatechange = function() { 
-//             if (this.readyState == 4 && this.status == 200) { 
-//                 dataset = JSON.parse(this.responseText);
-//                 addNewData(dataset);
-//                 console.log('true');
-//             }
-//             displaypage();
-//         };
+//         fetch('https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=1', {method: 'get'})
+//         .then(function(response){
+//           dataset = JSON.parse(this.responseText);
+//                    addNewData(dataset);
+//                    console.log('true');  
+//         })
+       
+//         fetch(openUrl, {
+//             method: 'GET'
+//         })
+//         .then(response => {
+//             dataset = JSON.parse(this.responseText);
+//             addNewData(dataset);
+//             console.log('true');  
+//         })
+//         .then(result => {
 
+//         })
+      
+        var openUrl = "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=6";
+        fetch(openUrl, {method: 'GET'})
+        .then(res => {
+            return res.text();
+        }).then(result => {
+            dataset = JSON.parse(result);
+            addNewData(dataset);
+            displaypage();
+        })
+      
         function addNewData(dataset) {
             var myTable = document.getElementById("csie");
             dataset.forEach(function(data, index){
